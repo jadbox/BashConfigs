@@ -17,4 +17,3 @@ alias af='antFlash'
 # alias wvim='ps ux | grep vim'
 
 # export PATH="/home/jonathan/ctags/bin:$PATH"
-cd MonsterPortalFB
