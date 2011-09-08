@@ -91,7 +91,7 @@ autocmd BufNewFile,BufRead *.as set filetype=haxe
 
 " autocmd FileType haxe set omnifunc=haxecomplete#Complete
 
-fun SetupVAM()
+fun! SetupVAM()
 	let vam_install_path = expand('$HOME') . '/.vim/vim-addons'
 	exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
 	if !isdirectory(vam_install_path.'/vim-addon-manager') && 1 == confirm("git clone VAM into ".vam_install_path."?","&Y\n&N")
@@ -114,7 +114,8 @@ imap <F2> <esc>:vsplit+:find**/<C-R>=expand('<cword>').'.hx'<CR>
 "map <F3> :vimgrep /public [function|var|override]/ **/<C-R>=expand('<cword>').'.hx'<CR>:copen<CR>
 map <F3> :execute 'vimgrep /public [function\|var\|override\|static\|inline]/ **/'.expand('<cword>').'.hx'<CR>:bp<CR>:copen<CR>
 
-"imap <C-i> :execute 'vimgrep /import.*'.expand('<cword>').'/ ~/MonsterPortalFB/haxe/game/src/monster/**/*.hx' | yy | :bd<CR>
+:command! -nargs=1 -complete=file Mview :view <args> | :%s/<script>\_.\{-}script>//g | :g/^$/d
+	"imap <C-i> :execute 'vimgrep /import.*'.expand('<cword>').'/ ~/MonsterPortalFB/haxe/game/src/monster/**/*.hx' | yy | :bd<CR>
 "imap <C-c> <esc>:command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
 
 "com! Snippets call Snipple()
