@@ -113,7 +113,7 @@ imap <F2> <esc>:vsplit+:find**/<C-R>=expand('<cword>').'.hx'<CR>
 
 "map <F3> :vimgrep /public [function|var|override]/ **/<C-R>=expand('<cword>').'.hx'<CR>:copen<CR>
 map <F3> :execute 'vimgrep /public [function\|var\|override\|static\|inline]/ **/'.expand('<cword>').'.hx'<CR>:bp<CR>:copen<CR>
-
+imap <C-X> <C-x><C-u>
 :command! -nargs=1 -complete=file Mview :view <args> | :%s/<script>\_.\{-}script>//g | :g/^$/d
 	"imap <C-i> :execute 'vimgrep /import.*'.expand('<cword>').'/ ~/MonsterPortalFB/haxe/game/src/monster/**/*.hx' | yy | :bd<CR>
 "imap <C-c> <esc>:command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
